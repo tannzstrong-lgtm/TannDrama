@@ -1,0 +1,15 @@
+{
+  "name": "TannDrama — Drama pribadi",
+  "short_name": "TannDrama",
+  "description": "Katalog dan pemutar drama pribadi yang menyimpan video di perangkat.",
+  "lang": "id-ID",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0c0913",
+  "theme_color": "#100b1b",
+  "icons": [
+    { "src": "assets/app-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

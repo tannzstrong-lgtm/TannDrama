@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100b1b">
+  <meta name="description" content="TannDrama — ruang menonton dan mengelola koleksi drama pribadi.">
+  <title>TannDrama — Cerita yang bikin lanjut</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/app-icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="TannDrama beranda">
+        <span class="brand-mark"><span>TD</span></span>
+        <span class="brand-word">Tann<span>Drama</span><small>STORY STREAMING</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Navigasi utama">
+        <a class="nav-link active" href="#home">Beranda</a>
+        <a class="nav-link" href="#catalog">Katalog</a>
+      </nav>
+      <div class="top-actions">
+        <label class="searchbox" aria-label="Cari drama">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.6"></circle><path d="m16 16 4.2 4.2"></path></svg>
+          <input id="searchInput" type="search" placeholder="Cari drama..." autocomplete="off">
+          <kbd>/</kbd>
+        </label>
+        <button class="owner-entry" id="ownerBtn" type="button"><span class="owner-dot"></span><span>Mode Owner</span></button>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="hero-bg-shape shape-one"></div>
+        <div class="hero-bg-shape shape-two"></div>
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-line"></span> CERITA DIMULAI DI SINI</div>
+          <h1 id="heroTitle">Sekali mulai,<br><span>susah berhenti.</span></h1>
+          <p class="hero-description" id="heroDescription">Temukan dunia drama penuh kejutan. Bangun katalog versimu sendiri dan putar koleksi video langsung dari perangkat ini.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" id="browseBtn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7z" fill="currentColor" stroke="none"></path></svg> Jelajahi Drama</button>
+            <button class="btn btn-secondary" id="heroUploadBtn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m-5 5 5-5 5 5M4 16v4h16v-4"></path></svg> Tambah Drama</button>
+          </div>
+          <div class="hero-footnote"><span class="status-pulse"></span> KOLEKSI PRIBADI <i></i> TANPA SERVER</div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-orbit orbit-a"></div><div class="art-orbit orbit-b"></div>
+          <div class="art-poster poster-back"><div class="poster-sun"></div><div class="poster-mountain mountain-back"></div><div class="poster-mountain mountain-front"></div><span class="poster-caption">AFTER<br>THE RAIN</span></div>
+          <div class="art-poster poster-front"><div class="poster-glow"></div><div class="poster-silhouette silhouette-a"></div><div class="poster-silhouette silhouette-b"></div><span class="poster-kicker">A TANNDRAMA STORY</span><span class="poster-main-title">THE<br><em>LAST</em><br>PROMISE</span><span class="poster-bottom">SEBUAH CERITA TENTANG PILIHAN</span></div>
+          <div class="floating-tag tag-top"><span class="tag-icon">✦</span><span><b>Drama pilihanmu</b><small>Jadi koleksi pribadimu</small></span></div>
+          <div class="floating-tag tag-bottom"><span class="live-bars"><i></i><i></i><i></i><i></i></span><span><b>Putar kapan saja</b><small>Offline setelah tersimpan</small></span></div>
+          <div class="art-star star-a">✦</div><div class="art-star star-b">✧</div><div class="art-star star-c">✦</div>
+        </div>
+        <div class="hero-bottom-line"></div>
+      </section>
+
+      <section class="quick-stats" aria-label="Ringkasan koleksi">
+        <div class="stat-item"><span class="stat-icon">▣</span><div><strong id="statDrama">0</strong><span>Judul tersimpan</span></div></div>
+        <div class="stat-separator"></div>
+        <div class="stat-item"><span class="stat-icon icon-pink">▶</span><div><strong id="statEpisodes">0</strong><span>Video siap diputar</span></div></div>
+        <div class="stat-separator"></div>
+        <div class="stat-item"><span class="stat-icon icon-gold">⌁</span><div><strong>100%</strong><span>Konten lokal</span></div></div>
+        <div class="stat-note"><span class="mini-shield">◇</span> Video tetap di perangkatmu</div>
+      </section>
+
+      <section class="catalog-section" id="catalog" aria-labelledby="catalogTitle">
+        <div class="section-heading">
+          <div><div class="section-kicker">PILIH CERITAMU</div><h2 id="catalogTitle">Drama untuk <span>ditonton</span></h2><p>Semua favoritmu, tersusun dalam satu tempat.</p></div>
+          <div class="catalog-tools"><label class="sort-label" for="sortSelect">Urutkan</label><select id="sortSelect"><option value="newest">Paling baru</option><option value="oldest">Paling lama</option><option value="az">Judul A–Z</option></select><button class="square-action" id="refreshBtn" type="button" aria-label="Muat ulang koleksi" title="Muat ulang koleksi">↻</button></div>
+        </div>
+        <div class="category-row" id="categoryRow" aria-label="Filter genre">
+          <button class="category-chip selected" data-category="Semua" type="button">Semua drama <span id="allCount">0</span></button>
+          <button class="category-chip" data-category="Romansa" type="button">Romansa</button>
+          <button class="category-chip" data-category="Aksi" type="button">Aksi</button>
+          <button class="category-chip" data-category="Fantasi" type="button">Fantasi</button>
+          <button class="category-chip" data-category="Misteri" type="button">Misteri</button>
+          <button class="category-chip" data-category="Komedi" type="button">Komedi</button>
+          <button class="category-chip" data-category="Drama" type="button">Drama</button>
+        </div>
+        <div class="results-bar"><span id="resultsText">0 drama dalam koleksi</span><span class="local-label"><span></span> PERPUSTAKAAN LOKAL</span></div>
+        <div class="drama-grid" id="dramaGrid" aria-live="polite"></div>
+        <div class="empty-state" id="emptyState">
+          <div class="empty-illustration"><div class="empty-disc"><span>▶</span></div><i class="empty-spark spark-one">✦</i><i class="empty-spark spark-two">✧</i><i class="empty-spark spark-three">✦</i></div>
+          <span class="empty-kicker">EPISODE PERTAMA MENUNGGU</span>
+          <h3>Koleksimu masih kosong.</h3>
+          <p>Masuk ke Mode Owner untuk mengunggah video drama pertama. File akan disimpan di browser ini dan bisa diputar tanpa koneksi setelah tersimpan.</p>
+          <button class="btn btn-primary" id="emptyUploadBtn" type="button">＋ Unggah Drama Pertama</button>
+        </div>
+        <div class="no-results" id="noResults" hidden><div class="no-results-icon">⌕</div><h3>Drama tidak ditemukan</h3><p>Coba kata kunci atau kategori lain.</p><button id="clearFiltersBtn" type="button" class="text-button">Hapus filter</button></div>
+      </section>
+
+      <section class="owner-promo" aria-label="Mode owner">
+        <div class="promo-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v5.4c0 4.5 3.2 7.7 7.5 9.6 4.3-1.9 7.5-5.1 7.5-9.6V6L12 3Z"></path><path d="m9 12 2 2 4-4"></path></svg></div>
+        <div class="promo-copy"><h3>Panggung ceritamu, aturanmu.</h3><p>Mode Owner membantumu mengunggah, mengatur, dan menghapus judul dari katalog lokal.</p></div>
+        <button class="btn btn-outline" id="promoOwnerBtn" type="button">Buka Mode Owner <span>↗</span></button>
+      </section>
+    </main>
+
+    <footer class="footer"><a class="footer-brand" href="#home">Tann<span>Drama</span></a><span>Ruang cerita pribadi, dibuat untuk koleksimu.</span><span class="footer-right">© <span id="yearNow"></span> TANNDRAMA</span></footer>
+  </div>
+
+  <div id="modalLayer" class="modal-layer" hidden></div>
+  <div id="toastRegion" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script src="app.js"></script>
+</body>
+</html>
